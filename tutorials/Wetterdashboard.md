@@ -31,14 +31,19 @@ Dort wird ein Ordner mit dieser Struktur angelegt:
 Ordner
 - Dashboard
 - Daten
-    - Historie
+    - forecast
+    - historie
 
-Im Ordner Dashboard wird Dashboard abegelgt.
+![Screenshot Ordnerstruktur](/sources/wetter-ordnerstruktur.png)
+
+Im Ordner Dashboard wird das Dashboard abgelegt.
 
 Im Ordner Daten werden die notwendigen Daten abgelegt.
-Dies sind die Datei forecast.json, die über Power Aoutomate aktualsiert wird, und die Datei weathertranslation.xlsx, die die Übersetzung zu den Wettersymbolen enthält.
+Dies sind die Datei orte.xlsx, die die Angaben zu den Orten enthält, deren Daten ausgewertet werden sollen, und die Datei weathertranslation.xlsx, die die Übersetzung zu den Wettersymbolen enthält.
 
-Im Ordner Daten - Historie werden stündlich die aktuellen Wetterdaten über Power Automate in Dateien mit dem Namen dataYYYYMMDD_hhmm.json abgelegt.
+Im Ordner Daten - forecast werden die Daten der 5 Tagesprognose über Power Automate in Dateien mit dem Namen forecast-XX.json abgelegt.
+
+Im Ordner Daten - historie werden stündlich die aktuellen Wetterdaten über Power Automate in Dateien mit dem Namen data-XX-YYYYMMDD_hhmm.json abgelegt.
 
 ## Arbeiten in Power Automate
 
@@ -53,14 +58,16 @@ Der Flow für den Forecast sieht so aus:
 
 ![Screenshot Flow Forecast](/sources/wetter-forecast-flow.png)
 
+Einstellungen für den Abruf der Koordinaten aus der Datei orte.xlsx.
+
+![Screenshot Orte Abfruf](/sources/wetter-forecast-tabelle.png)
+
 Einstellungen für den API Abruf
 
 ![Screenshot API Forecast](/sources/wetter-forecast-http.png)
 
 Hier müssen folgende Werte angepasst werden:
 - appid mit dem API Key von openweathermap
-- lat mit der geographischen Breite des Ortes als englsiche Dezimalzahl
-- lon mit der geographischen Länge des Ortes als englsiche Dezimalzahl
 
 Einstellung für das Speichern der Daten
 
@@ -70,9 +77,9 @@ Hier müssen folgende Werte angepasst werden:
 - Webseiteadresse mit der URL zu SharePoint Site. Dieser wird über das Dropdownmenü ausgewählt.
 - Ordnerpfad mit dem Pfad zum Datenordner. Dieser wird über das Menü ausgewählt.
 
-### Stündlich
+### Historie
 
-Der Flow für den stündlichen Abruf sieht so aus:
+Der Flow für den stündlichen Abruf der Historie sieht so aus:
 
 ![Screenshot Flow Stündlich](/sources/wetter-stündlich-flow.png)
 
@@ -80,14 +87,16 @@ Einstellungen für den Zeitstempel
 
 ![Screenshot API Stündlich](/sources/wetter-stündlich-zeitstempel.png)
 
+Einstellungen für den Abruf der Koordinaten aus der Datei orte.xlsx.
+
+![Screenshot Orte Abfruf](/sources/wetter-forecast-tabelle.png)
+
 Einstellungen für den API Abruf
 
 ![Screenshot API Stündlich](/sources/wetter-stündlich-http.png)
 
 Hier müssen folgende Werte angepasst werden:
 - appid mit dem API Key von openweathermap
-- lat mit der geographischen Breite des Ortes als englsiche Dezimalzahl
-- lon mit der geographischen Länge des Ortes als englsiche Dezimalzahl
 
 Einstellung für das Speichern der Daten
 
@@ -118,7 +127,7 @@ Anschließend wird Power Query mit Scließen und übernehmen geschlossen.
 
 Nun kann das Dashboard veröffentlicht werden.
 
-nach der Veröffentlichung muss der Arbeitsbereich, in den das Dashboard veröffentlicht wurde geöffnet und das Semantikmodell des Dashbaords angepasst werden.
+nach der Veröffentlichung muss der Arbeitsbereich, in den das Dashboard veröffentlicht wurde, geöffnet und das Semantikmodell des Dashbaords angepasst werden.
 
 ![Screenshot Einstellung Semantikmodell öffen](/sources/wetter-pbi-einstellungen.png)
 
@@ -128,7 +137,7 @@ Dazu werden die drei Punkte des Semantikmodells angeklickt und der Punkt Einstel
 
 In den Einstellungen müssen zum Einem die Datenquellen Anmeldeinformationen bearbeitet werden.
 
-Es müssen alle drei Angaben angeklickt und aktuallisiert werden.
+Es müssen alle Angaben angeklickt und aktuallisiert werden.
 
 ![Screenshot Einstellung Anmeldeinformation](/sources/wetter-pbi-einstellungen-anmeldung.png)
 
