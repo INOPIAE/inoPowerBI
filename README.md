@@ -6,4 +6,4 @@ In diesem Repository werden Power BI Beispiel-Dashbaords zur Verfügung gestellt
 
 Hier wird ein Dashboard mit Daten aus [https://openweathermap.org/](https://openweathermap.org/) über Power Automate aktualisert.
 
-Die Beschreibung findet sich [hier](/tutorials/)
+Die Beschreibung findet sich [hier](/tutorials/Wetterdashboard.md)
