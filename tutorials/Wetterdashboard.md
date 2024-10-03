@@ -47,7 +47,7 @@ Im Ordner Daten - historie werden stündlich die aktuellen Wetterdaten über Pow
 
 ## Arbeiten in Power Automate
 
-Es werden zwei Flows in Power Automate angelegt. Diese können manuell angelegt werden oder über die beiden Zip-Dateien  im Ordner [/samples/wetter/](/samples/wetter/) importiert werden. 
+Es werden zwei Flows in Power Automate angelegt. Diese können manuell angelegt werden oder über die beiden Zip-Dateien im Ordner [/samples/wetter/](/samples/wetter/) importiert werden. 
 
 Falls die Dateien importiert werden, müssen diese gemäß der weiteren Angaben angepasst werden. Der Import wird [hier](https://github.com/INOPIAE/inoPowerAutomate/blob/master/tutorials/importexportflow.md) beschrieben.
 
